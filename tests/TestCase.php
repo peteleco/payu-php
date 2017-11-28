@@ -6,6 +6,7 @@ use PHPUnit\Framework\TestCase as MainTestCase;
 /**
  * Class TestCase
  *
+ * @see     http://developers.payulatam.com/pt/api/considerations.html
  * @package PayU\Tests
  */
 class TestCase extends MainTestCase
@@ -13,6 +14,7 @@ class TestCase extends MainTestCase
 
     /**
      * @var Environment
+     *
      */
     public $environment;
 
