@@ -1,0 +1,38 @@
+{
+  "name": "peteleco/payu-php",
+  "description": "PayU lib as package",
+  "type": "library",
+  "require": {
+    "php": ">=7.1",
+    "guzzlehttp/guzzle": "^6.3"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^6.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "PayU\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "files": [
+      "lib/PayU.php"
+    ],
+    "psr-4": {
+      "PayU\\Tests\\": "tests/"
+    }
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Leonardo Jorge",
+      "email": "ldiascarmo@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "config": {
+    "preferred-install": "dist",
+    "sort-packages": true,
+    "optimize-autoloader": true
+  }
+}
