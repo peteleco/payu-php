@@ -1,4 +1,4 @@
-<?php namespace PayU\Support;
+<?php namespace Peteleco\PayU\Support;
 
 /**
  * Class Environment

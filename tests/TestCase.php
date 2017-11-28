@@ -1,6 +1,6 @@
-<?php namespace PayU\Tests;
+<?php namespace Peteleco\PayU\Tests;
 
-use PayU\Support\Environment;
+use Peteleco\PayU\Support\Environment;
 use PHPUnit\Framework\TestCase as MainTestCase;
 
 /**

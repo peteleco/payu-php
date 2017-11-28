@@ -11,15 +11,12 @@
   },
   "autoload": {
     "psr-4": {
-      "PayU\\": "src/"
+      "Peteleco\\PayU\\": "src/"
     }
   },
   "autoload-dev": {
-    "files": [
-      "lib/PayU.php"
-    ],
     "psr-4": {
-      "PayU\\Tests\\": "tests/"
+      "Peteleco\\PayU\\Tests\\": "tests/"
     }
   },
   "license": "MIT",

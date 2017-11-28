@@ -1,8 +1,8 @@
-<?php namespace PayU\Commands\Payments;
+<?php namespace Peteleco\PayU\Commands\Payments;
 
-use PayU\Models\CreditCardToken;
-use PayU\Support\CommandRequest;
-use PayU\Support\Contracts\ICommandRequest;
+use Peteleco\PayU\Models\CreditCardToken;
+use Peteleco\PayU\Support\CommandRequest;
+use Peteleco\PayU\Support\Contracts\ICommandRequest;
 use Psr\Http\Message\ResponseInterface;
 
 class Token extends CommandRequest implements ICommandRequest

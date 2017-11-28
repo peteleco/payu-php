@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "71ff289abf7d46799ab8a441c957478c",
+    "content-hash": "4cb50aae30daf9585c166f94ed1cab0f",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -498,12 +498,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "1119a9765990a24f4c5218a85032fb6f3a91eaff"
+                "reference": "66465776cfc249844bde6d117abff1d22e06c2da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/1119a9765990a24f4c5218a85032fb6f3a91eaff",
-                "reference": "1119a9765990a24f4c5218a85032fb6f3a91eaff",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/66465776cfc249844bde6d117abff1d22e06c2da",
+                "reference": "66465776cfc249844bde6d117abff1d22e06c2da",
                 "shasum": ""
             },
             "require": {
@@ -541,7 +541,7 @@
                 }
             ],
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
-            "time": "2017-11-15 19:01:54"
+            "time": "2017-11-27 17:38:31"
         },
         {
             "name": "phpdocumentor/type-resolver",
@@ -655,16 +655,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "dev-master",
+            "version": "5.2.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "c4a57a943aa0c8a57bc21446d1358564f41c4ddf"
+                "reference": "7d7739ff9e07475ba0eb1a46dfd6eb98c2fd04bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/c4a57a943aa0c8a57bc21446d1358564f41c4ddf",
-                "reference": "c4a57a943aa0c8a57bc21446d1358564f41c4ddf",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/7d7739ff9e07475ba0eb1a46dfd6eb98c2fd04bc",
+                "reference": "7d7739ff9e07475ba0eb1a46dfd6eb98c2fd04bc",
                 "shasum": ""
             },
             "require": {
@@ -680,7 +680,6 @@
                 "theseer/tokenizer": "^1.1"
             },
             "require-dev": {
-                "ext-xdebug": "^2.5",
                 "phpunit/phpunit": "^6.0"
             },
             "suggest": {
@@ -704,7 +703,7 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "email": "sb@sebastian-bergmann.de",
+                    "email": "sebastian@phpunit.de",
                     "role": "lead"
                 }
             ],
@@ -715,7 +714,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-11-27 10:20:08"
+            "time": "2017-11-28T06:05:44+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -856,7 +855,7 @@
         },
         {
             "name": "phpunit/php-token-stream",
-            "version": "dev-master",
+            "version": "2.0.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-token-stream.git",
@@ -901,20 +900,20 @@
             "keywords": [
                 "tokenizer"
             ],
-            "time": "2017-11-27 08:47:38"
+            "time": "2017-11-27T08:47:38+00:00"
         },
         {
             "name": "phpunit/phpunit",
-            "version": "dev-master",
+            "version": "6.5.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "485e7f707692b81c360e713c280601ad20de5392"
+                "reference": "cecb7130665823ce14f9b91d3899b97afe3a1e74"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/485e7f707692b81c360e713c280601ad20de5392",
-                "reference": "485e7f707692b81c360e713c280601ad20de5392",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/cecb7130665823ce14f9b91d3899b97afe3a1e74",
+                "reference": "cecb7130665823ce14f9b91d3899b97afe3a1e74",
                 "shasum": ""
             },
             "require": {
@@ -985,7 +984,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-11-27 14:31:41"
+            "time": "2017-11-28T05:18:56+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -993,12 +992,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit-mock-objects.git",
-                "reference": "43ac35d1620d57b3d3b8df3967130e1a589be551"
+                "reference": "f72a0da31f2bee0b3d90259cacc12f2b0b8b8f5f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/43ac35d1620d57b3d3b8df3967130e1a589be551",
-                "reference": "43ac35d1620d57b3d3b8df3967130e1a589be551",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/f72a0da31f2bee0b3d90259cacc12f2b0b8b8f5f",
+                "reference": "f72a0da31f2bee0b3d90259cacc12f2b0b8b8f5f",
                 "shasum": ""
             },
             "require": {
@@ -1034,7 +1033,7 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "email": "sb@sebastian-bergmann.de",
+                    "email": "sebastian@phpunit.de",
                     "role": "lead"
                 }
             ],
@@ -1044,7 +1043,7 @@
                 "mock",
                 "xunit"
             ],
-            "time": "2017-11-22 08:03:17"
+            "time": "2017-11-28 04:39:15"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
@@ -1701,6 +1700,8 @@
     "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "php": ">=7.1"
+    },
     "platform-dev": []
 }

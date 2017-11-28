@@ -1,8 +1,8 @@
 <?php
 
-namespace PayU\Support\Contracts;
+namespace Peteleco\PayU\Support\Contracts;
 
-use PayU\Support\CommandResponse;
+use Peteleco\PayU\Support\CommandResponse;
 use Psr\Http\Message\ResponseInterface;
 
 /**

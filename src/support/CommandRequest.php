@@ -1,4 +1,4 @@
-<?php namespace PayU\Support;
+<?php namespace Peteleco\PayU\Support;
 
 use GuzzleHttp\Client;
 use Psr\Http\Message\ResponseInterface;
@@ -88,7 +88,7 @@ abstract class CommandRequest
         $json = array_merge($json, $data);
 
         return [
-            'debug'                             => true,
+            'debug'                             => false,
             \GuzzleHttp\RequestOptions::HEADERS => $this->headers(),
             \GuzzleHttp\RequestOptions::JSON    => $json
         ];

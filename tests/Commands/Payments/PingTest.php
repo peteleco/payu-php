@@ -1,8 +1,7 @@
-<?php namespace PayU\Tests\Commands\Payments;
+<?php namespace Peteleco\PayU\Tests\Commands\Payments;
 
-use PayU\Commands\Payments\Ping;
-use PayU\Support\Environment;
-use PayU\Tests\TestCase;
+use Peteleco\PayU\Commands\Payments\Ping;
+use Peteleco\PayU\Tests\TestCase;
 
 class PingTest extends TestCase
 {

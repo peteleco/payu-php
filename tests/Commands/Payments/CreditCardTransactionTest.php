@@ -1,20 +1,20 @@
-<?php namespace PayU\Tests\Commands\Payments;
+<?php namespace Peteleco\PayU\Tests\Commands\Payments;
 
-use PayU\Commands\Payments\CreditCardTransaction;
-use PayU\Commands\Payments\Token;
-use PayU\Models\AdditionalValues;
-use PayU\Models\Buyer;
-use PayU\Models\CreditCardToken;
-use PayU\Models\Order;
-use PayU\Models\Transaction;
-use PayU\Tests\TestCase;
+use Peteleco\PayU\Commands\Payments\CreditCardTransaction;
+use Peteleco\PayU\Commands\Payments\Token;
+use Peteleco\PayU\Models\AdditionalValues;
+use Peteleco\PayU\Models\Buyer;
+use Peteleco\PayU\Models\CreditCardToken;
+use Peteleco\PayU\Models\Order;
+use Peteleco\PayU\Models\Transaction;
+use Peteleco\PayU\Tests\TestCase;
 
 class CreditCardTransactionTest extends TestCase
 {
 
     public function test_request()
     {
-        $value = 255.53;
+        $value           = 255.53;
         $creditCardToken = $this->generateCreditCardToken();
 
         $creditCardTransaction = new CreditCardTransaction($this->environment);
@@ -51,13 +51,12 @@ class CreditCardTransactionTest extends TestCase
 
         $transaction->setOrder($order);
 
-        echo '<pre><code>';
-        var_dump($transaction->toApi());
-        echo '</code></pre>';
+        $response = $creditCardTransaction->request($transaction);
 
-         $response = $creditCardTransaction->request($transaction);
+        $content = \GuzzleHttp\json_decode($response->getBody()->getContents());
 
-         var_dump($response->getBody()->getContents());
+        $this->assertEquals($content->code, 'SUCCESS');
+        $this->assertEquals($content->transactionResponse->state, 'APPROVED');
     }
 
     public function generateCreditCardToken()

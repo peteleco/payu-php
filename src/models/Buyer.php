@@ -1,4 +1,4 @@
-<?php namespace PayU\Models;
+<?php namespace Peteleco\PayU\Models;
 
 /**
  * Class Buyer

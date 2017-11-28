@@ -1,8 +1,8 @@
-<?php namespace PayU\Commands\Payments;
+<?php namespace Peteleco\PayU\Commands\Payments;
 
-use PayU\Support\CommandRequest;
-use PayU\Support\CommandResponse;
-use PayU\Support\Contracts\ICommandRequest;
+use Peteleco\PayU\Support\CommandRequest;
+use Peteleco\PayU\Support\CommandResponse;
+use Peteleco\PayU\Support\Contracts\ICommandRequest;
 use Psr\Http\Message\ResponseInterface;
 
 class Ping extends CommandRequest implements ICommandRequest

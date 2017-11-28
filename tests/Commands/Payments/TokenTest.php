@@ -1,8 +1,8 @@
-<?php namespace PayU\Tests\Commands\Payments;
+<?php namespace Peteleco\PayU\Tests\Commands\Payments;
 
-use PayU\Commands\Payments\Token;
-use PayU\Models\CreditCardToken;
-use PayU\Tests\TestCase;
+use Peteleco\PayU\Commands\Payments\Token;
+use Peteleco\PayU\Models\CreditCardToken;
+use Peteleco\PayU\Tests\TestCase;
 
 class TokenTest extends TestCase
 {
