@@ -25,4 +25,5 @@ class PaymentMethods
     const VISANET         = 'VISANET';
     const RIPSA           = 'RIPSA';
     const CODENSA         = 'CODENSA';
+    const HIPERCARD       = 'HIPERCARD';
 }
