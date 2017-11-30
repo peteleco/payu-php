@@ -3,7 +3,6 @@
 use Peteleco\PayU\Models\CreditCardToken;
 use Peteleco\PayU\Support\CommandRequest;
 use Peteleco\PayU\Support\Contracts\ICommandRequest;
-use Psr\Http\Message\ResponseInterface;
 
 class Token extends CommandRequest implements ICommandRequest
 {
@@ -23,10 +22,9 @@ class Token extends CommandRequest implements ICommandRequest
     /**
      * @param CreditCardToken $creditCardToken
      *
-     * @return ResponseInterface
-     *
+     * @return mixed
      */
-    public function request(CreditCardToken $creditCardToken): ResponseInterface
+    public function request(CreditCardToken $creditCardToken)
     {
         return $this->post([
             'creditCardToken' => $creditCardToken->toApi()

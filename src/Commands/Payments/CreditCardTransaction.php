@@ -32,7 +32,7 @@ class CreditCardTransaction extends CommandRequest implements ICommandRequest
      *
      * @return ResponseInterface
      */
-    public function request(Transaction $transaction): ResponseInterface
+    public function request(Transaction $transaction)
     {
         return $this->post([
             'transaction' => $transaction->toApi()

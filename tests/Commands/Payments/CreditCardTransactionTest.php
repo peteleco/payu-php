@@ -53,10 +53,8 @@ class CreditCardTransactionTest extends TestCase
 
         $response = $creditCardTransaction->request($transaction);
 
-        $content = \GuzzleHttp\json_decode($response->getBody()->getContents());
-
-        $this->assertEquals($content->code, 'SUCCESS');
-        $this->assertEquals($content->transactionResponse->state, 'APPROVED');
+        $this->assertEquals($response->code, 'SUCCESS');
+        $this->assertEquals($response->transactionResponse->state, 'APPROVED');
     }
 
     public function generateCreditCardToken()
@@ -70,8 +68,6 @@ class CreditCardTransactionTest extends TestCase
             'number'               => '4082061556622228',
             'expirationDate'       => '2022/01'
         ]));
-
-        $response = \GuzzleHttp\json_decode($response->getBody()->getContents());
 
         return $response->creditCardToken;
     }

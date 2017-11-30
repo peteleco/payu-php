@@ -19,8 +19,6 @@ class TokenTest extends TestCase
             'expirationDate'       => '2022/01'
         ]));
 
-        $response = \GuzzleHttp\json_decode($response->getBody()->getContents());
-
         $this->assertObjectHasAttribute('code', $response);
         $this->assertEquals($response->code, 'SUCCESS');
         $this->assertObjectHasAttribute('creditCardToken', $response);

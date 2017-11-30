@@ -3,6 +3,12 @@
 use Peteleco\PayU\Commands\Payments\Ping;
 use Peteleco\PayU\Tests\TestCase;
 
+/**
+ * Todo: implement negative tests
+ * Class PingTest
+ *
+ * @package Peteleco\PayU\Tests\Commands\Payments
+ */
 class PingTest extends TestCase
 {
 
@@ -15,8 +21,8 @@ class PingTest extends TestCase
         $ping = new Ping($this->environment);
 
         $response = $ping->request();
-        $this->assertEquals('{"code":"SUCCESS","error":null,"transactionResponse":null}',
-            $response->getBody()->getContents());
 
+        $this->assertObjectHasAttribute('code', $response);
+        $this->assertEquals('SUCCESS', $response->code);
     }
 }

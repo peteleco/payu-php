@@ -1,6 +1,7 @@
 <?php namespace Peteleco\PayU\Support;
 
 use GuzzleHttp\Client;
+use Peteleco\PayU\Exceptions\RequestFailedException;
 use Psr\Http\Message\ResponseInterface;
 
 /**
@@ -53,11 +54,17 @@ abstract class CommandRequest
     /**
      * @param array $data
      *
-     * @return ResponseInterface
+     * @return mixed
      */
-    public function post(array $data = []): ResponseInterface
+    public function post(array $data = [])
     {
-        return $this->client->post($this->getPath(), $this->requestOptions($data));
+        // Todo: Realizar ping antes de realizar a requisição
+        $request = $this->client->post($this->getPath(), $this->requestOptions($data));
+
+        // Todo: Tratar erros aqui gerando exceções
+        $response = $this->handleRequestResponse($request);
+
+        return $this->handleResponse($response);
     }
 
     /**
@@ -120,6 +127,36 @@ abstract class CommandRequest
             'Accept'          => 'application/json',
             'Accept-Language' => $this->getEnvironment()->getLanguage()
         ];
+    }
+
+    /**
+     * Handle request response
+     *
+     * @param ResponseInterface $response
+     *
+     * @return mixed
+     * @throws RequestFailedException
+     */
+    public function handleRequestResponse(ResponseInterface $response)
+    {
+        if ($response->getStatusCode() != 200) {
+            throw new RequestFailedException();
+        }
+
+        return \GuzzleHttp\json_decode($response->getBody()->getContents());
+    }
+
+    /**
+     * Handle the response object returned
+     *
+     * @param $response
+     *
+     * @return mixed
+     */
+    public function handleResponse($response)
+    {
+        // if() ERROR --- do what?!
+        return $response;
     }
 
     /**
