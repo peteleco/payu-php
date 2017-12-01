@@ -89,7 +89,7 @@ abstract class CommandRequest
                 'apiLogin' => $this->getEnvironment()->getApiLogin(),
                 'apiKey'   => $this->getEnvironment()->getApiKey()
             ],
-            'test'     => false
+            'test'     => $this->getEnvironment()->isSandboxMode()
         ];
 
         $json = array_merge($json, $data);

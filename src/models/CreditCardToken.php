@@ -65,7 +65,7 @@ class CreditCardToken extends Model
      */
     public function setNumber($number)
     {
-        $this->number = $number;
+        $this->number = preg_replace('/\s+/', '', $number);
 
         return $this;
     }
