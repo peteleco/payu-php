@@ -1,5 +1,7 @@
 <?php namespace Peteleco\PayU\Tests;
 
+use Peteleco\PayU\Commands\Payments\Token;
+use Peteleco\PayU\Models\CreditCardToken;
 use Peteleco\PayU\Support\Environment;
 use PHPUnit\Framework\TestCase as MainTestCase;
 
@@ -29,5 +31,26 @@ class TestCase extends MainTestCase
             '512327',
             true
         );
+    }
+
+    /**
+     * Generates a credit card token
+     * @param string $status
+     *
+     * @return mixed
+     */
+    public function generateCreditCardToken($status = 'APPROVED')
+    {
+        $token    = new Token($this->environment);
+        $response = $token->request(new CreditCardToken([
+            'payerId'              => 10,
+            'name'                 => $status,
+            'identificationNumber' => '121231231',
+            'paymentMethod'        => 'VISA',
+            'number'               => '4082 0615 5662 2228',
+            'expirationDate'       => '2022/01'
+        ]));
+
+        return $response->creditCardToken;
     }
 }

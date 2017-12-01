@@ -28,7 +28,7 @@ class CreditCardTransactionTest extends TestCase
 
         $buyer = new Buyer([
             'merchantBuyerId' => '10',
-            'fullName'        => 'Nome completo',
+            'fullName'        => 'APPROVED',
             'emailAddress'    => 'email@gmail.com',
             'contactPhone'    => '21 97190-9202',
             'dniNumber'       => '811.807.405-64',
@@ -57,15 +57,15 @@ class CreditCardTransactionTest extends TestCase
         $this->assertEquals($response->transactionResponse->state, 'APPROVED');
     }
 
-    public function generateCreditCardToken()
+    public function generateCreditCardToken($status = 'APPROVED')
     {
         $token    = new Token($this->environment);
         $response = $token->request(new CreditCardToken([
             'payerId'              => 10,
-            'name'                 => 'Nome completo',
+            'name'                 => $status,
             'identificationNumber' => '121231231',
             'paymentMethod'        => 'VISA',
-            'number'               => '4082061556622228',
+            'number'               => '4082 0615 5662 2228',
             'expirationDate'       => '2022/01'
         ]));
 
@@ -112,7 +112,7 @@ class CreditCardTransactionTest extends TestCase
         $transaction->setOrder($order);
 
         $response = $creditCardTransaction->request($transaction);
-        
+
         $this->assertEquals($response->code, 'SUCCESS');
         $this->assertEquals($response->transactionResponse->state, 'APPROVED');
     }
