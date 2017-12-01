@@ -86,7 +86,7 @@ class Transaction extends Model
      */
     public function setPaymentMethod(string $paymentMethod): Transaction
     {
-        $this->paymentMethod = $paymentMethod;
+        $this->paymentMethod = strtoupper($paymentMethod);
 
         return $this;
     }
