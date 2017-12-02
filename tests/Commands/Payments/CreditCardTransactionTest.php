@@ -117,6 +117,49 @@ class CreditCardTransactionTest extends TestCase
         $this->assertEquals($response->transactionResponse->state, 'APPROVED');
     }
 
+//    public function test_with_custom_credit_card_token() {
+//        $creditCardToken = '969fc20e-75eb-48ee-aa85-625b260acec8';
+//        $value           = 30.0;
+//
+//        $creditCardTransaction = new CreditCardTransaction($this->environment);
+//
+//        $transaction = new Transaction([
+//            'creditCardTokenId' => $creditCardToken,
+//            'paymentMethod'     => 'visa',//$creditCardToken->paymentMethod,
+//            'paymentCountry'    => 'BR',
+//            'ipAddress'         => '127.0.0.0'
+//        ]);
+//
+//        $buyer = new Buyer([
+//            'merchantBuyerId' => 23,
+//            'fullName'        => 'Richard Medeiros',
+//            'emailAddress'    => 'richard@gmail.com',
+//            'contactPhone'    => '21 972637367',
+//            'dniNumber'       => '15539459997',
+//        ]);
+//
+//        $additionalValues = new AdditionalValues([
+//            'value'    => $value,
+//            'currency' => 'BRL'
+//        ]);
+//
+//        $order = new Order([
+//            'accountId'     => $this->environment->getAccountId(), // '512327', // Brasil
+//            'referenceCode' => 217,
+//            'signature'     => $creditCardTransaction->signature('217', $value, 'BRL'),
+//            'description'   => 'CLBNHO OFTA #217',
+//            'language'      => 'pt',
+//        ]);
+//        $order->setBuyer($buyer);
+//        $order->setAdditionalValues($additionalValues);
+//
+//        $transaction->setOrder($order);
+//
+//        $response = $creditCardTransaction->request($transaction);
+//
+//        $this->assertEquals($response->code, 'SUCCESS');
+//        $this->assertEquals($response->transactionResponse->state, 'PENDING');
+//    }
 
     /*
         order
