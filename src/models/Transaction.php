@@ -8,6 +8,12 @@ class Transaction extends Model
      * @var Order
      */
     public $order;
+
+    /**
+     * @var Payer
+     */
+    public $payer;
+
     /**
      * @var string
      */
@@ -153,6 +159,18 @@ class Transaction extends Model
     public function setInstallments(int $installments): Transaction
     {
         $this->installments = $installments;
+
+        return $this;
+    }
+
+    /**
+     * @param Payer $payer
+     *
+     * @return Transaction
+     */
+    public function setPayer(Payer $payer): Transaction
+    {
+        $this->payer = $payer;
 
         return $this;
     }

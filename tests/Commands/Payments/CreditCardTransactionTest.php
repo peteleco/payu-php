@@ -6,16 +6,17 @@ use Peteleco\PayU\Models\AdditionalValues;
 use Peteleco\PayU\Models\Buyer;
 use Peteleco\PayU\Models\CreditCardToken;
 use Peteleco\PayU\Models\Order;
+use Peteleco\PayU\Models\Payer;
 use Peteleco\PayU\Models\Transaction;
 use Peteleco\PayU\Tests\TestCase;
 
 class CreditCardTransactionTest extends TestCase
 {
 
-    public function test_request()
+    public function test_request_credit()
     {
         $value           = 255.53;
-        $creditCardToken = $this->generateCreditCardToken();
+        $creditCardToken = $this->generateCreditCardToken($payerName = 'APPROVED');
 
         $creditCardTransaction = new CreditCardTransaction($this->environment);
 
@@ -28,21 +29,21 @@ class CreditCardTransactionTest extends TestCase
 
         $buyer = new Buyer([
             'merchantBuyerId' => '10',
-            'fullName'        => 'APPROVED',
+            'fullName'        => 'Nome do Comprador',
             'emailAddress'    => 'email@gmail.com',
             'contactPhone'    => '21 97190-9202',
-            'dniNumber'       => '811.807.405-64',
+            // 'dniNumber'       => '811.807.405-64',
         ]);
 
         $additionalValues = new AdditionalValues([
             'value'    => $value,
             'currency' => 'BRL'
         ]);
-
+        $referenceCode = 'order_id_00000002';
         $order = new Order([
             'accountId'     => $this->environment->getAccountId(), // '512327', // Brasil
-            'referenceCode' => 'order_id_00000001',
-            'signature'     => $creditCardTransaction->signature('order_id_00000001', $value, 'BRL'),
+            'referenceCode' => $referenceCode,
+            'signature'     => $creditCardTransaction->signature($referenceCode, $value, 'BRL'),
             'description'   => 'Teste de compra',
             'language'      => 'pt',
         ]);
@@ -51,10 +52,20 @@ class CreditCardTransactionTest extends TestCase
 
         $transaction->setOrder($order);
 
-        $response = $creditCardTransaction->request($transaction);
+        // Payer
+        $payer = new Payer([
+            'fullName'        => $payerName,
+            'contactPhone'    => '21 97190-9202',
+            'dniNumber'       => '811.807.405-64',
+        ]);
+        $transaction->setPayer($payer);
 
+
+        $response = $creditCardTransaction->request($transaction);
+        var_dump($response);
         $this->assertEquals($response->code, 'SUCCESS');
         $this->assertEquals($response->transactionResponse->state, 'APPROVED');
+
     }
 
     public function generateCreditCardToken($status = 'APPROVED')
@@ -63,7 +74,7 @@ class CreditCardTransactionTest extends TestCase
         $response = $token->request(new CreditCardToken([
             'payerId'              => 10,
             'name'                 => $status,
-            'identificationNumber' => '121231231',
+            'identificationNumber' => '811.807.405-64',
             'paymentMethod'        => 'VISA',
             'number'               => '4082 0615 5662 2228',
             'expirationDate'       => '2022/01'
@@ -75,7 +86,7 @@ class CreditCardTransactionTest extends TestCase
     public function test_2_request()
     {
         $value           = 30.0;
-        $creditCardToken = $this->generateCreditCardToken();
+        $creditCardToken = $this->generateCreditCardToken($payerName = 'APPROVED');
 
         $creditCardTransaction = new CreditCardTransaction($this->environment);
 
@@ -91,7 +102,7 @@ class CreditCardTransactionTest extends TestCase
             'fullName'        => 'Richard Medeiros',
             'emailAddress'    => 'richard@gmail.com',
             'contactPhone'    => '21 972637367',
-            'dniNumber'       => '15539459997',
+//            'dniNumber'       => '15539459997',
         ]);
 
         $additionalValues = new AdditionalValues([
@@ -110,6 +121,14 @@ class CreditCardTransactionTest extends TestCase
         $order->setAdditionalValues($additionalValues);
 
         $transaction->setOrder($order);
+
+        // Payer
+        $payer = new Payer([
+            'fullName'        => $payerName,
+            'contactPhone'    => '21 97190-9202',
+            'dniNumber'       => '811.807.405-64',
+        ]);
+        $transaction->setPayer($payer);
 
         $response = $creditCardTransaction->request($transaction);
 

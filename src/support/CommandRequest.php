@@ -60,7 +60,6 @@ abstract class CommandRequest
     {
         // Todo: Realizar ping antes de realizar a requisição
         $request = $this->client->post($this->getPath(), $this->requestOptions($data));
-
         // Todo: Tratar erros aqui gerando exceções
         $response = $this->handleRequestResponse($request);
 

@@ -13,6 +13,6 @@ class CommandResponse
     public function __construct(ResponseInterface $response)
     {
         $this->response = $response;
-        var_dump($response->getBody()->getContents());
+//        var_dump($response->getBody()->getContents());
     }
 }
