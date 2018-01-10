@@ -20,8 +20,6 @@ class CancelCreditCardTransactionTest extends TestCase
             $pendingTransaction->transactionResponse->transactionId,
             $pendingTransaction->transactionResponse->orderId
         );
-
-        var_dump($cancelResponse);
     }
 
     public function generatePendingTransaction()

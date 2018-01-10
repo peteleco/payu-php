@@ -62,7 +62,6 @@ class CreditCardTransactionTest extends TestCase
 
 
         $response = $creditCardTransaction->request($transaction);
-        var_dump($response);
         $this->assertEquals($response->code, 'SUCCESS');
         $this->assertEquals($response->transactionResponse->state, 'APPROVED');
 
